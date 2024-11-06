@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    private static final String URL = "/api";
+    private static final String URL = "";
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -38,8 +38,8 @@ public class WebSecurityConfig {
                         .requestMatchers(URL + "/").permitAll()
                         .requestMatchers(HttpMethod.POST, "user").permitAll()
                         .requestMatchers(HttpMethod.POST, "user/login").permitAll()
-                        .requestMatchers(URL + "api/user").hasAnyRole("USER", "ADM")
-                        .requestMatchers(URL + "/adm").hasAnyRole("ADM")
+                        .requestMatchers(URL + "/profile").hasAnyRole("USER", "ADM")
+                        .requestMatchers(URL + "/admin").hasAnyRole("ADM")
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
 

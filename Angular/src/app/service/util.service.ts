@@ -26,7 +26,7 @@ export class UtilService {
       Authorization: 'Basic ' + token
     });
 
-    this.http.get(this.url + "/api/adm", {headers});
+    this.http.get(this.url + "/api/admin", {headers});
   }
 
   user(){
